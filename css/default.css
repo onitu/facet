@@ -1,0 +1,63 @@
+
+/* Unique elements */
+#sidebar {
+	background: #1E1E1E;
+	position: fixed;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+#sidebar-logo {
+	width: 75%;
+	text-align: center;
+	margin: auto;
+	display: block;
+}
+
+#navbar {
+}
+
+#navbar-header {
+	font-size: 3em;
+	color: #A5A5A5;
+}
+
+#navbar-subheader {
+	font-size: 2em;
+	color: #C1C1C1;
+}
+
+#navbar-menu {
+	color: #2F2F2F;
+}
+
+#content {
+	background-color: #FDFDFD;
+}
+
+/* Classes */
+
+#sidebar > .pure-menu {
+	background-color: inherit;
+	width: 100%;
+	border: none;
+}
+
+#navbar > .pure-menu {
+	background-color: inherit;
+	text-align: center;
+}
+
+#sidebar > .pure-menu .pure-menu-heading {
+	border-bottom: 1px solid #9F9F9F;
+	color: #DFDFDF;
+}
+
+.pure-menu a, .pure-menu .pure-menu-can-have-children > li::after { 
+	color: #AFAFAF;
+}
+
+.pure-menu li a:hover, .pure-menu li a:focus { 
+	background: #272727;
+}
