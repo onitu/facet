@@ -64,10 +64,32 @@
 	color: #DFDFDF;
 }
 
-.pure-menu a, .pure-menu .pure-menu-can-have-children > li::after { 
+#sidebar > .pure-menu a,
+#sidebar > .pure-menu .pure-menu-can-have-children > li::after { 
 	color: #AFAFAF;
 }
 
-.pure-menu li a:hover, .pure-menu li a:focus { 
+#sidebar > .pure-menu li a:hover,
+#sidebar > .pure-menu li a:focus { 
 	background: #272727;
+}
+
+#navbar-menu a:hover,
+#navbar-menu a:focus { 
+	border-bottom: 2px solid #DFDFDF;
+	background: none;
+}
+
+#navbar-menu .pure-menu-selected {
+	border-bottom: 2px solid #3F3F3F;
+}
+
+#navbar-menu .pure-menu-selected a:hover,
+#navbar-menu .pure-menu-selected a:focus { 
+	border-bottom: none;
+	background: none;
+}
+
+#navbar-menu a {
+	color: #07121F;
 }
