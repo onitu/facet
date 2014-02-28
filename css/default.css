@@ -1,4 +1,9 @@
 
+/* DOM elements */
+* {
+	font-family: "Gafata", sans-serif;
+}
+
 /* Unique elements */
 #sidebar {
 	background: #1E1E1E;
@@ -6,10 +11,11 @@
 	height: 100%;
 	top: 0;
 	left: 0;
+	padding-top: 1em;
 }
 
 #sidebar-logo {
-	width: 75%;
+	width: 66%;
 	text-align: center;
 	margin: auto;
 	display: block;
@@ -21,15 +27,19 @@
 #navbar-header {
 	font-size: 3em;
 	color: #A5A5A5;
+	text-align: center;
+	padding-top: 1em;
 }
 
 #navbar-subheader {
 	font-size: 2em;
 	color: #C1C1C1;
+	text-align: center;
 }
 
 #navbar-menu {
 	color: #2F2F2F;
+	padding-top: 1em;
 }
 
 #content {
