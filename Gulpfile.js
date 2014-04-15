@@ -6,21 +6,21 @@ var sass = require("gulp-sass")
 var open = require("gulp-open")
 
 gulp.task('scripts', function() {
-  gulp.src(['app/scripts/*.js'])
+  return gulp.src(['app/scripts/*.js'])
     .pipe(browserify())
     .pipe(gulp.dest('./build'))
     .pipe(livereload())
 })
 
 gulp.task('stylesheets', function() {
-  gulp.src(['app/stylesheets/app.scss'])
+  return gulp.src(['app/stylesheets/app.scss'])
     .pipe(sass())
     .pipe(gulp.dest('./build'))
     .pipe(livereload())
 })
 
 gulp.task('content', function() {
-  gulp.src(['app/**/*.html'])
+  return gulp.src(['app/**/*.html'])
     .pipe(embedlr())
     .pipe(gulp.dest('./build/'))
     .pipe(livereload())
@@ -32,8 +32,10 @@ gulp.task('server', function(next) {
 
   server.use(connect.static('./build'))
     .listen(4242, next)
+})
 
-  gulp.src('./build/index.html')
+gulp.task('open', ['dist', 'server'], function() {
+  return gulp.src('build/index.html')
     .pipe(open('', {url: 'http://localhost:4242'}))
 })
 
@@ -50,7 +52,6 @@ gulp.task('dist', [
 ])
 
 gulp.task("default", [
-  "dist",
-  "server",
+  "open",
   "watch"
 ])
