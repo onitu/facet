@@ -1,6 +1,7 @@
 var gulp = require("gulp")
 var browserify = require('gulp-browserify')
 var connect = require("gulp-connect")
+var sass = require("gulp-sass")
 var open = require("gulp-open")
 
 gulp.task('scripts', function() {
@@ -10,7 +11,8 @@ gulp.task('scripts', function() {
 })
 
 gulp.task('stylesheets', function() {
-  gulp.src(['app/stylesheets/*.css'])
+  gulp.src(['app/stylesheets/app.scss'])
+    .pipe(sass())
     .pipe(gulp.dest('./build'))
 })
 
@@ -35,8 +37,8 @@ gulp.task('reload', function() {
 })
 
 gulp.task('watch', function() {
-  gulp.watch('app/stylesheets/*.css', ['stylesheets'])
-  gulp.watch('app/scripts/*.js', ['scripts'])
+  gulp.watch('app/stylesheets/**/*.scss', ['stylesheets'])
+  gulp.watch('app/scripts/**/*.js', ['scripts'])
   gulp.watch('app/**/*.html', ['content', 'reload'])
 })
 
