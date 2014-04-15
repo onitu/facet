@@ -1,6 +1,7 @@
 var gulp = require("gulp")
-var browserify = require('gulp-browserify')
-var connect = require("gulp-connect")
+var browserify = require("gulp-browserify")
+var livereload = require("gulp-livereload")
+var embedlr = require("gulp-embedlr")
 var sass = require("gulp-sass")
 var open = require("gulp-open")
 
@@ -8,38 +9,38 @@ gulp.task('scripts', function() {
   gulp.src(['app/scripts/*.js'])
     .pipe(browserify())
     .pipe(gulp.dest('./build'))
+    .pipe(livereload())
 })
 
 gulp.task('stylesheets', function() {
   gulp.src(['app/stylesheets/app.scss'])
     .pipe(sass())
     .pipe(gulp.dest('./build'))
+    .pipe(livereload())
 })
 
 gulp.task('content', function() {
   gulp.src(['app/**/*.html'])
+    .pipe(embedlr())
     .pipe(gulp.dest('./build/'))
+    .pipe(livereload())
 })
 
-gulp.task('server', function() {
-   connect.server({
-    root : './build',
-    port : 4242,
-    livereload : { port: 4243 }
-  })
+gulp.task('server', function(next) {
+  var connect = require("connect")
+  var server = connect()
+
+  server.use(connect.static('./build'))
+    .listen(4242, next)
 
   gulp.src('./build/index.html')
     .pipe(open('', {url: 'http://localhost:4242'}))
 })
 
-gulp.task('reload', function() {
-  connect.reload()
-})
-
 gulp.task('watch', function() {
   gulp.watch('app/stylesheets/**/*.scss', ['stylesheets'])
   gulp.watch('app/scripts/**/*.js', ['scripts'])
-  gulp.watch('app/**/*.html', ['content', 'reload'])
+  gulp.watch('app/**/*.html', ['content'])
 })
 
 gulp.task('dist', [
