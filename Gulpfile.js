@@ -3,6 +3,7 @@ var browserify = require("gulp-browserify")
 var livereload = require("gulp-livereload")
 var embedlr = require("gulp-embedlr")
 var sass = require("gulp-sass")
+var jade = require("gulp-jade")
 var open = require("gulp-open")
 
 gulp.task('scripts', function() {
@@ -20,7 +21,8 @@ gulp.task('stylesheets', function() {
 })
 
 gulp.task('content', function() {
-  return gulp.src(['app/**/*.html'])
+  return gulp.src(['app/**/*.jade'])
+    .pipe(jade())
     .pipe(embedlr())
     .pipe(gulp.dest('./build/'))
     .pipe(livereload())
@@ -42,7 +44,7 @@ gulp.task('open', ['dist', 'server'], function() {
 gulp.task('watch', function() {
   gulp.watch('app/stylesheets/**/*.scss', ['stylesheets'])
   gulp.watch('app/scripts/**/*.js', ['scripts'])
-  gulp.watch('app/**/*.html', ['content'])
+  gulp.watch('app/**/*.jade', ['content'])
 })
 
 gulp.task('dist', [
