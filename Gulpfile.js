@@ -4,10 +4,12 @@ var livereload = require("gulp-livereload")
 var embedlr = require("gulp-embedlr")
 var sass = require("gulp-sass")
 var jade = require("gulp-jade")
+var coffee = require("gulp-coffee")
 var open = require("gulp-open")
 
 gulp.task('scripts', function() {
-  return gulp.src(['app/scripts/*.js'])
+  return gulp.src(['app/scripts/app.coffee'])
+    .pipe(coffee())
     .pipe(browserify())
     .pipe(gulp.dest('./build'))
     .pipe(livereload())
