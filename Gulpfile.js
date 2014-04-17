@@ -1,4 +1,5 @@
 var gulp = require("gulp")
+var util = require("gulp-util")
 var browserify = require("gulp-browserify")
 var livereload = require("gulp-livereload")
 var embedlr = require("gulp-embedlr")
@@ -9,22 +10,22 @@ var open = require("gulp-open")
 
 gulp.task('scripts', function() {
   return gulp.src(['app/scripts/app.coffee'])
-    .pipe(coffee())
-    .pipe(browserify())
+    .pipe(coffee().on('error', util.log))
+    .pipe(browserify().on('error', util.log))
     .pipe(gulp.dest('./build'))
     .pipe(livereload())
 })
 
 gulp.task('stylesheets', function() {
   return gulp.src(['app/stylesheets/app.scss'])
-    .pipe(sass())
+    .pipe(sass().on('error', util.log))
     .pipe(gulp.dest('./build'))
     .pipe(livereload())
 })
 
 gulp.task('content', function() {
   return gulp.src(['app/**/*.jade'])
-    .pipe(jade())
+    .pipe(jade().on('error', util.log))
     .pipe(embedlr())
     .pipe(gulp.dest('./build/'))
     .pipe(livereload())
@@ -45,7 +46,7 @@ gulp.task('open', ['dist', 'server'], function() {
 
 gulp.task('watch', function() {
   gulp.watch('app/stylesheets/**/*.scss', ['stylesheets'])
-  gulp.watch('app/scripts/**/*.js', ['scripts'])
+  gulp.watch('app/scripts/**/*.coffee', ['scripts'])
   gulp.watch('app/**/*.jade', ['content'])
 })
 
