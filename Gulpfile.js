@@ -34,6 +34,11 @@ gulp.task('content', function() {
     .pipe(livereload())
 })
 
+gulp.task('images', function() {
+  return gulp.src('app/images/*')
+    .pipe(gulp.dest('./build/images'))
+})
+
 gulp.task('server', function(next) {
   var connect = require("connect")
   var server = connect()
@@ -51,12 +56,14 @@ gulp.task('watch', function() {
   gulp.watch('app/stylesheets/**/*.scss', ['stylesheets'])
   gulp.watch('app/scripts/**/*.coffee', ['scripts'])
   gulp.watch('app/**/*.jade', ['content'])
+  gulp.watch('app/images/*', ['images'])
 })
 
 gulp.task('dist', [
   "scripts",
   "stylesheets",
-  "content"
+  "content",
+  "images"
 ])
 
 gulp.task("default", [
