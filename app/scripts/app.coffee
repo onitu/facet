@@ -7,6 +7,9 @@ require 'restangular'
 app = angular.module 'facet', ['ui.bootstrap', 'ui.router', 'restangular']
 
 app.config ($stateProvider, $urlRouterProvider, RestangularProvider) ->
+  RestangularProvider
+    .setBaseUrl 'http://localhost:3862/api/v1.0'
+
   $urlRouterProvider.otherwise('/files')
 
   $stateProvider
@@ -15,8 +18,10 @@ app.config ($stateProvider, $urlRouterProvider, RestangularProvider) ->
       templateUrl: 'partials/files.html'
       controller: 'FilesCtrl'
 
-  RestangularProvider
-    .setBaseUrl 'http://localhost:3862/api/v1.0'
+    .state 'drivers',
+      url: '/drivers'
+      templateUrl: 'partials/drivers.html'
+      controller: 'DriversCtrl'
 
 
 app.filter 'bytes', ->
@@ -32,3 +37,4 @@ app.filter 'bytes', ->
 
 
 require './controllers/files'
+require './controllers/drivers'

@@ -1,0 +1,13 @@
+h2 Drivers
+
+.table-responsive
+  table.table
+    thead
+      tr
+        th Name
+        th Driver
+    tbody
+      tr(ng-repeat="driver in drivers")
+        td {{driver.name}}
+        td
+          span.driver {{driver.driver}}
