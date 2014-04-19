@@ -10,5 +10,29 @@ html(lang="fr" ng-app="facet")
     title Onitu
     link(rel="stylesheet" href="app.css")
   body
+    #container.container-fluid
+      .row
+        #sidebar.col-sm-3.col-md-2
+          nav.navbar.navbar-default.navbar-inverse(role='navigation')
+            .navbar-header
+              button.navbar-toggle(type='button' data-toggle='collapse' data-target='.navbar-ex1-collapse'
+                                   ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href='#')
+                img(src="images/logo.png" alt="Onitu")
+
+            .collapse.navbar-collapse.navbar-ex1-collapse(ng-class="{'in':!navCollapsed}")
+              ul.nav.navbar-nav
+                li.active
+                  a(href='#') Files
+                li
+                  a(href='#') Drivers
+                li
+                  a(href='#') Rules
+
+        #main.col-sm-9.col-md-10(ui-view)
 
     script(src="app.js")
