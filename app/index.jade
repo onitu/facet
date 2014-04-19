@@ -26,12 +26,10 @@ html(lang="fr" ng-app="facet")
 
             .collapse.navbar-collapse.navbar-ex1-collapse(ng-class="{'in':!navCollapsed}")
               ul.nav.navbar-nav
-                li.active
-                  a(href='#') Files
-                li
-                  a(href='#') Drivers
-                li
-                  a(href='#') Rules
+                li(ui-sref-active="active")
+                  a(ui-sref="files") Files
+                li(ui-sref-active="active")
+                  a(ui-sref="drivers") Drivers
 
         #main.col-sm-9.col-md-10(ui-view)
 
