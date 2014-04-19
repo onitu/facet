@@ -1,0 +1,16 @@
+h2 Files
+
+.table-responsive
+  table.table
+    thead
+      tr
+        th Filename
+        th Drivers
+        th Size
+    tbody
+      tr(ng-repeat="file in files")
+        td {{file.filename}}
+        td
+          span.driver(ng-repeat="owner in file.owners") {{owner}}
+        td {{file.size | bytes}}
+
