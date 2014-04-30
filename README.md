@@ -1,14 +1,12 @@
-Facet
-=====
+# Facet
 
-Onitu's web interface
+[Onitu](https://github.com/onitu/onitu)'s web interface. Built in AngularJS with Sass & CoffeeScript.
 
-Contributing
-============
+## Contributing
 
-Setup
-------------
-If you want to build Facet, you'll need NodeJS. It's not required for the runtime, but for the building process. When you have NodeJS installed, you can run the following commands:
+### Setup
+
+If you want to build Facet, you'll need NodeJS. It's not required at runtime, but only for the building process. If you have NodeJS installed, you can run the following commands:
 
 ```shell
 $ git clone https://github.com/onitu/facet.git
@@ -17,11 +15,11 @@ $ sudo npm install -g gulp # only needed if don't have Gulp installed
 $ npm install
 ```
 
-When all is installed, you can run `gulp` to build the assets and open the interface. Each time you make a modification in the source, the assets will be recompiled and the page reloaded.
+When all is installed, you can run `gulp` to build the assets and open the interface. Each time you make a modification to the sources, the assets will be recompiled and the page reloaded.
 
-Resources
-=========
-Facet is built with AngularJS, CoffeeScript and Sass. Here is the reference for the main dependencies:
+### Resources
+
+Facet is built with AngularJS, CoffeeScript and Sass. Here are some useful resources for the main components:
 
 - [Sass reference](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
 - [AngularJS documentation](https://docs.angularjs.org/api)
