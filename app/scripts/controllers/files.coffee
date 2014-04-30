@@ -12,7 +12,6 @@ angular.module('facet')
   .controller 'FilesCtrl', ($scope, $timeout, Files) ->
     (reload = ->
       Files.list().then (data) ->
-        console.log data
         $scope.files = data
       $timeout reload, 5000
     )()

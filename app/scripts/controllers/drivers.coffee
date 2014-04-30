@@ -12,7 +12,6 @@ angular.module('facet')
   .controller 'DriversCtrl', ($scope, $timeout, Drivers) ->
     (reload = ->
       Drivers.list().then (data) ->
-        console.log data[0]['options_']
         $scope.drivers = data
       $timeout reload, 5000
     )()
