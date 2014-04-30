@@ -6,8 +6,10 @@ h2 Drivers
       tr
         th Name
         th Driver
+        th Options
     tbody
       tr(ng-repeat="driver in drivers")
         td {{driver.name}}
         td
           span.driver {{driver.driver}}
+        td {{driver.options}}

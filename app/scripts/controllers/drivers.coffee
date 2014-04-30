@@ -1,6 +1,8 @@
 angular.module('facet')
   .factory 'Drivers', (Restangular) ->
     drivers = Restangular.withConfig (RestangularConfigurer) ->
+      RestangularConfigurer.restangularFields.options = '_options'
+
       RestangularConfigurer.addResponseInterceptor (data, operation) ->
         if operation == 'getList'
           return data['entries']
