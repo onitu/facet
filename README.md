@@ -2,6 +2,8 @@
 
 [Onitu](https://github.com/onitu/onitu)'s web interface. Built in AngularJS with Sass & CoffeeScript.
 
+Please report the issues [here](https://github.com/onitu/onitu/issues).
+
 ## Contributing
 
 ### Setup
