@@ -1,0 +1,27 @@
+<div class="pure-g">
+	<div id="files-list" class="pure-u-offset-1-12 pure-u-11-12">
+		<table class="pure-table">
+			<thead>
+				<tr>
+					<th>preview</th>
+					<th>download</th>
+					<th>filename</th>
+					<th>size</th>
+					<th>owners</th>
+					<th>up to date</th>
+				</tr>
+			</thead>
+
+			<tbody ng-repeat="file in files">
+				<tr class="pure-table-odd">
+					<td><i class="fa fa-eye"></i></td>
+					<td><i class="fa fa-download"></i></td>
+					<td>{{file.filename}}</td>
+					<td>{{file.size | bytes}}</td>
+					<td><span ng-repeat="owner in file.owners">{{owner}}</span></td>
+					<td><i class="fa fa-check"></i></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
