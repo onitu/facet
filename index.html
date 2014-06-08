@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="facetApp">
 	<head>
 		<title>Onitu</title>
 
@@ -15,6 +15,10 @@
 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Gafata" type="text/css">
 		<link rel="stylesheet" href="css/default.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controllers.js"></script>
 	</head>
 
 	<body>
@@ -32,14 +36,24 @@
 						<li><a href="#"><i class="fa fa-file-o fa-fw"></i>&nbsp;Other</a></li>
 	
 						<li class="pure-menu-heading"><i class="fa fa-refresh fa-fw"></i>&nbsp;Drivers</li>
-						<li><a href="#"><i class="fa fa-laptop fa-fw"></i>&nbsp;Local</a></li>
-						<li><a href="#"><i class="fa fa-hdd-o fa-fw"></i>&nbsp;Secure Shell</a></li>
-						<li><a href="#"><i class="fa fa-dropbox fa-fw"></i>&nbsp;Dropbox</a></li>
+
+						<li>
+							<!-- FIXME: lol. -->
+							<div class="pure-menu pure-menu-open" ng-controller="DriverListCtrl">
+								<ul>
+									<li ng-repeat="driver in drivers">
+										<a href="#"><i class="fa fa-laptop fa-fw"></i>&nbsp;{{driver.name}}</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+
+						<li><a href="#"><i class="fa fa-plus-circle"></i>&nbsp;add driver</a></li>
 					</ul>
 				</div>
 			</div>
 
-			<div id="content" class="pure-u-offset-1-6 pure-u-5-6">
+			<div id="navbar-g" class="pure-u-offset-1-6 pure-u-5-6">
 				<div class="pure-g">
 					<div id="navbar" class="pure-u-offset-1-8 pure-u-3-4">
 						<div id="navbar-header"><b>Onitu</b></div>
@@ -48,16 +62,22 @@
 
 						<div id="navbar-menu" class="pure-menu pure-menu-open pure-menu-horizontal">
 							<ul>
-								<li class="pure-menu-selected"><a href="#">Home</a></li>
-								<li><a href="#">Flickr</a></li>
-								<li><a href="#">Messenger</a></li>
-								<li><a href="#">Sports</a></li>
-								<li><a href="#">Finance</a></li>
+								<li><a href="#">Home</a></li>
+								<li class="pure-menu-selected"><a href="#">My files</a></li>
+								<li><a href="#">Settings</a></li>
+								<li><a href="#">Documentation</a></li>
+								<li><a href="#">Contact</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div id="content-g" class="pure-g">
+				<div class="pure-u-offset-1-6 pure-u-5-6">
+				</div>
+			</div>
 		</div>
+
 	</body>
 </html>
