@@ -17,8 +17,10 @@
 		<link rel="stylesheet" href="css/default.css">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/controllers.js"></script>
+		<script src="js/filters.js"></script>
 	</head>
 
 	<body>
@@ -39,7 +41,7 @@
 
 						<li>
 							<!-- FIXME: lol. -->
-							<div class="pure-menu pure-menu-open" ng-controller="DriverListCtrl">
+							<div class="pure-menu pure-menu-open" ng-controller="driverListCtrl">
 								<ul>
 									<li ng-repeat="driver in drivers">
 										<a href="#"><i class="fa fa-laptop fa-fw"></i>&nbsp;{{driver.name}}</a>
@@ -74,7 +76,7 @@
 			</div>
 
 			<div id="content-g" class="pure-g">
-				<div class="pure-u-offset-1-6 pure-u-5-6">
+				<div class="pure-u-offset-1-6 pure-u-5-6" ng-view>
 				</div>
 			</div>
 		</div>
