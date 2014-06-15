@@ -13,12 +13,15 @@ facetApp.config([ "$routeProvider",
 		.when("/settings", {
 			templateUrl: "partials/settings.html",
 		})
-		.when("/driver", {
-			templateUrl: "partials/drivers.html",
+		.when("/driver/list", {
+			templateUrl: "partials/driver_list.html",
+			controller: "driverListCtrl",
 		})
 		.when("/driver/add", {
 			templateUrl: "partials/driver_add.html",
-			// FIXME: controller: "",
+		})
+		.when("/driver/edit/:id", {
+			templateUrl: "partials/driver_edit.html",
 		})
 		.when("/documentation", {
 			templateUrl: "partials/documentation.html",

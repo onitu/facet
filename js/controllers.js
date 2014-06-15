@@ -7,9 +7,9 @@ facetControllers.controller("driverListCtrl", [ "$scope", "$http",
 	function ($scope, $http) {
 		// FIXME: get the drivers from the server
 		$scope.drivers = [
-			{"name": "Secure Shell"},
-			{"name": "Dropbox"},
-			{"name": "Local"},
+			{"name": "Secure Shell", "id": 0},
+			{"name": "Dropbox", "id": 1},
+			{"name": "Local", "id": 2},
 		];
 	}
 ]);
