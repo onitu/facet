@@ -5,13 +5,26 @@ var facetApp = angular.module("facetApp", [ "ngRoute", "facetFilters", "facetCon
 
 facetApp.config([ "$routeProvider",
 	function ($rp) {
-		$rp.when("/driver/add", {
-			templateUrl: "partials/add_driver_form.html",
-			// FIXME: controller: "",
-		})
-		$rp.when("/files", {
+		$rp
+		.when("/files", {
 			templateUrl: "partials/files_list.html",
 			controller: "filesListCtrl",
+		})
+		.when("/settings", {
+			templateUrl: "partials/settings.html",
+		})
+		.when("/driver", {
+			templateUrl: "partials/drivers.html",
+		})
+		.when("/driver/add", {
+			templateUrl: "partials/driver_add.html",
+			// FIXME: controller: "",
+		})
+		.when("/documentation", {
+			templateUrl: "partials/documentation.html",
+		})
+		.when("/contact", {
+			templateUrl: "partials/contact.html",
 		})
 		.otherwise({
 			redirectTo: "/files",

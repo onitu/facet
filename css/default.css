@@ -83,20 +83,20 @@
 	background: #272727;
 }
 
-#navbar-menu a:hover,
-#navbar-menu a:focus { 
+#navbar-menu li a:hover,
+#navbar-menu li a:focus { 
 	border-bottom: 2px solid #DFDFDF;
 	background: none;
 }
 
-#navbar-menu .pure-menu-selected {
-	border-bottom: 2px solid #3F3F3F;
-}
-
-#navbar-menu .pure-menu-selected a:hover,
-#navbar-menu .pure-menu-selected a:focus { 
+#navbar-menu li.active a:hover,
+#navbar-menu li.active a:focus { 
 	border-bottom: none;
 	background: none;
+}
+
+#navbar-menu li.active {
+	border-bottom: 2px solid #3F3F3F;
 }
 
 #navbar-menu a {
