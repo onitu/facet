@@ -1,3 +1,7 @@
+/*
+ * filters.js for onitu
+ * by lenorm_f
+ */
 
 "user strict";
 
