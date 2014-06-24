@@ -1,3 +1,7 @@
+/*
+ * app.js for onitu
+ * by lenorm_f
+ */
 
 "use strict";
 
@@ -22,6 +26,7 @@ facetApp.config([ "$routeProvider",
 		})
 		.when("/driver/edit/:id", {
 			templateUrl: "partials/driver_edit.html",
+			controller: "driverEditCtrl",
 		})
 		.when("/documentation", {
 			templateUrl: "partials/documentation.html",

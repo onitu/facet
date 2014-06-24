@@ -1,3 +1,7 @@
+/*
+ * controllers.js for onitu
+ * by lenorm_f
+ */
 
 "use strict";
 
@@ -11,6 +15,17 @@ facetControllers.controller("driverListCtrl", [ "$scope", "$http",
 			{"name": "Dropbox", "id": 1},
 			{"name": "Local", "id": 2},
 		];
+	}
+]);
+
+facetControllers.controller("driverEditCtrl", [ "$scope", "$routeParams",
+	function ($scope, $routeParams) {
+		// FIXME: get from the local drivers DB
+		$scope.driver = {
+			"name": "Unknown driver",
+			"description": "Unknown driver's description",
+			"id": $routeParams.id,
+		}
 	}
 ]);
 
