@@ -1,0 +1,23 @@
+<div class="pure-g">
+	<div class="pure-u-offset-1-8 pure-u-5-8">
+		<p class="well">
+			You have something you want to tell us ? Need help ? Make sure you check out the <a href="#/documentation">online documentation</a>, or send us a message with the following form:
+		</p>
+
+		<form name="contactForm" class="pure-form pure-form-aligned" novalidate>
+			<fieldset>
+				<div class="pure-control-group">
+					<label for="name">Name</label>
+					<input name="name" id="name" type="text" placeholder="Name" class="pure-u-5-8" required>
+				</div>
+
+				<div class="pure-control-group">
+					<label for="message">Message</label>
+					<textarea name="message" rows="8" placeholder="Type in your message" class="pure-u-5-8" required></textarea>
+				</div>
+			</fieldset>
+
+			<button class="pure-button pure-button-primary pull-right" ng-disabled="!contactForm.name.$dirty || !contactForm.message.$dirty">Send</button>
+		</form>
+	</div>
+</div>
