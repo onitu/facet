@@ -7,9 +7,9 @@
 
 var facetServices = angular.module("facetServices", [ "ngResource" ]);
 
-facetServices.factory("file", [ "$resource",
+facetServices.factory("File", [ "$resource",
 	function ($resource) {
 		// FIXME: fetch from the server
-		return $resource("", {}, {});
+		return $resource("/files", {}, {});
 	}
 ]);

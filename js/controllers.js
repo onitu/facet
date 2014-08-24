@@ -58,10 +58,14 @@ facetControllers.controller("driverEditCtrl", [ "$rootScope", "$scope", "$routeP
     }
 ]);
 
-facetControllers.controller("filesListCtrl", [ "$scope", "$http",
-	function ($scope, $http) {
+facetControllers.controller("filesListCtrl", [ "$scope", "$http", "$log", "File"
+	function ($scope, $http, File) {
 		// FIXME: get the files from the server
-		$scope.files = [
+	        var files = File.query(function() {
+		  $log.log(files);
+		});
+		
+	        $scope.files = [
 			{"filename": "/etc/passwd", "type": "other", "size": "1234", "owners": [ "Dropbox" ]},
 			{"filename": "backup_my_documents.zip", "type": "other", "size": "10101010", "owners": [ "Secure Shell" ]},
 			{"filename": "IMG_2014_001", "type": "picture", "size": "2009", "owners": [ "Local" ]},
