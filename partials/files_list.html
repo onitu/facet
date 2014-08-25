@@ -20,7 +20,7 @@
 					<td>{{file.filename}}</td>
                     <td><i class="fa" ng-class="fileTypeToAwesomeClass(file.type)"></i></td>
 					<td>{{file.size | fileSize}}</td>
-					<td><span ng-repeat="owner in file.owners">{{owner}}</span></td>
+					<td><span ng-repeat="owner in file.owners" spaceNotLast>{{$last && owner || owner + ", "}}</span></td>
 					<td><i class="fa fa-check"></i></td>
 				</tr>
 			</tbody>
