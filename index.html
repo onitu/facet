@@ -38,7 +38,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
-                        <img src="img/logo_32.png" alt="onitu logo"> Onitu
+                        <img src="img/logo_16.png" alt="onitu logo"> Onitu
                     </a>
                 </div>
 
@@ -80,6 +80,25 @@
                                 <i class="fa fa-fw" ng-class="driverToAwesomeClass(driver.name)"></i>
                                 {{driver.name}}
                             </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav nav-sidebar list-group">
+                        <li class="list-group-item disabled">Quick upload</li>
+                        <li class="list-group-item">
+                            <form role="form" style="padding: .3em">
+                                <div class="form-group">
+                                    <select multiple class="form-control" size="3" ng-controller="driverListCtrl">
+                                        <option ng-repeat="driver in drivers">{{driver.name}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="file" id="inputFile">
+                                </div>
+
+                                <button type="submit" id="buttonUpload" class="btn btn-default btn-sm">Upload</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
