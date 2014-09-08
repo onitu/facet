@@ -7,7 +7,18 @@ body {
     padding-top: 60px;
 }
 
-.brand {
+.nav-sidebar > .list-group-item {
+    padding: 0;
+}
+
+.nav-sidebar > .list-group-item.disabled {
+    text-align: center;
+}
+
+.list-group-item > a > .fa {
+    color: #525252;
+    margin-right: .5em;
+    margin-left: .5em;
 }
 
 .nav-sidebar {
@@ -26,4 +37,9 @@ body {
 .nav-sidebar > .active > a:focus {
     color: #fff;
     background-color: #428bca;
+}
+
+table > tbody > tr > td,
+table > thead > tr > th {
+    text-align: center;
 }

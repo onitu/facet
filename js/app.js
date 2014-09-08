@@ -14,26 +14,6 @@ facetApp.config([ "$routeProvider",
 			templateUrl: "partials/files_list.html",
 			controller: "filesListCtrl",
 		})
-		.when("/settings", {
-			templateUrl: "partials/settings.html",
-		})
-		.when("/driver/list", {
-			templateUrl: "partials/driver_list.html",
-			controller: "driverListCtrl",
-		})
-		.when("/driver/add", {
-			templateUrl: "partials/driver_add.html",
-		})
-		.when("/driver/edit/:id", {
-			templateUrl: "partials/driver_edit.html",
-			controller: "driverEditCtrl",
-		})
-		.when("/documentation", {
-			templateUrl: "partials/documentation.html",
-		})
-		.when("/contact", {
-			templateUrl: "partials/contact.html",
-		})
 		.otherwise({
 			redirectTo: "/files",
 		});
