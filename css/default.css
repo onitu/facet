@@ -43,3 +43,7 @@ table > tbody > tr > td,
 table > thead > tr > th {
     text-align: center;
 }
+
+table > tbody > tr > td:nth-child(6) > i.fa {
+    margin-right: .5em;
+}

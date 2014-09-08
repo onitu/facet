@@ -27,6 +27,9 @@
 		<script src="js/services.js"></script>
 		<script src="js/controllers/files.js"></script>
 		<script src="js/controllers/drivers.js"></script>
+		<script src="js/controllers/breadcrumb.js"></script>
+		<script src="js/controllers/settings.js"></script>
+		<script src="js/controllers/contact.js"></script>
     </head>
 
     <body>
@@ -39,10 +42,10 @@
                 </div>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">F.A.Q.</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li class="active"><a href="#/">My files</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                    <li><a href="#/faq">F.A.Q.</a></li>
+                    <li><a href="#/contact">Contact</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -67,21 +70,25 @@
                         <li class="list-group-item"><a href="#"><i class="fa fa-music fa-fw"></i>Music</a></li>
                         <li class="list-group-item"><a href="#"><i class="fa fa-font fa-fw"></i>Documents</a></li>
                         <li class="list-group-item"><a href="#"><i class="fa fa-file fa-fw"></i>Other</a></li>
-
                     </ul>
 
                     <ul class="nav nav-sidebar list-group" ng-controller="driverListCtrl">
                         <li class="list-group-item disabled">My drivers</a></li>
-                        <li class="list-group-item" ng-repeat="driver in drivers"><a href="#"><i class="fa" ng-class="driverToAwesomeClass(driver.name)"></i>{{driver.name}}</a></li>
+                        <li class="list-group-item" ng-repeat="driver in drivers">
+                            <a href="#">
+                                <i class="fa" ng-class="driverToAwesomeClass(driver.name)"></i>
+                                {{driver.name}}
+                            </a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="col-md-10">
                     <div class="container-fluid">
                         <div class="row">
-                            <ol class="breadcrumb">
-                                <li><a href="#">Home</a></li>
-                                <li class="active">My files</li>
+                            <ol class="breadcrumb" ng-controller="breadcrumbHomeCtrl">
+                                <li>Onitu</li>
+                                <li ng-class="{active: $last}" ng-repeat="directory in path">{{directory}}</li>
                             </ol>
                         </div>
 

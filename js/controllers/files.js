@@ -14,7 +14,7 @@ facetControllers.controller("filesListCtrl", [ "$scope", "$http",
 			{"filename": "/etc/passwd", "type": "other", "size": 1234, "owners": [ "Dropbox", "Secure Shell" ]},
 			{"filename": "epitech.flv", "type": "video", "size": 0, "owners": [ "Secure Shell", "Local" ]},
             {"filename": "IMG_2389.jpg", "type": "picture", "size": 19345, "owners": [ "Dropbox" ]},
-			{"filename": "42.zip", "type": "other", "size": 10101010, "owners": [ "Local" ]},
+			{"filename": "nyan.ogg", "type": "music", "size": 10101010, "owners": [ "Local" ]},
 		];
 
         $scope.fileTypeToAwesomeClass = function (filetype) {

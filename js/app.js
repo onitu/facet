@@ -14,6 +14,17 @@ facetApp.config([ "$routeProvider",
 			templateUrl: "partials/files_list.html",
 			controller: "filesListCtrl",
 		})
+		.when("/settings", {
+			templateUrl: "partials/settings.html",
+			controller: "settingsFormCtrl",
+		})
+		.when("/faq", {
+			templateUrl: "partials/faq.html",
+		})
+		.when("/contact", {
+			templateUrl: "partials/contact.html",
+			controller: "contactFormCtrl",
+		})
 		.otherwise({
 			redirectTo: "/files",
 		});
