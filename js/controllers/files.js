@@ -20,10 +20,10 @@ facetControllers.controller("filesListCtrl", [ "$scope", "$http", "$routeParams"
         }
 		// FIXME: get the files from the server
 		var files = [
-			{"filename": "/etc/passwd", "type": "other", "size": 1234, "owners": [ "Dropbox", "Secure Shell" ]},
-            {"filename": "report_epitech.pdf", "type": "document", "size": 8964912, "owners": [ "Local", "Dropbox" ]},
-			{"filename": "epitech.flv", "type": "video", "size": 0, "owners": [ "Local", "Secure Shell" ]},
-            {"filename": "IMG_2389.jpg", "type": "picture", "size": 19345, "owners": [ "Dropbox" ]},
+			{"filename": "/etc/passwd", "type": "other", "size": 1234, "owners": [ "Dropbox", "Local", "Secure Shell" ]},
+            {"filename": "report_epitech.pdf", "type": "document", "size": 8964912, "owners": [ "Dropbox" ]},
+			{"filename": "epitech.flv", "type": "video", "size": 0, "owners": [ "Dropbox", "Local", "Secure Shell" ]},
+            {"filename": "IMG_2389.jpg", "type": "picture", "size": 19345, "owners": [ "Secure Shell" ]},
 			{"filename": "nyan.ogg", "type": "music", "size": 10101010, "owners": [ "Local" ]},
 		];
 

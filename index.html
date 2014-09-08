@@ -15,22 +15,6 @@
         <link rel="stylesheet" href="css/default.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Gafata" type="text/css">
-
-		<!-- FIXME: load the minified versions prior to release -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.js"></script>
-		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-resource.js"></script>-->
-		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.min.js"></script>-->
-
-		<script src="js/app.js"></script>
-		<script src="js/filters.js"></script>
-		<script src="js/services.js"></script>
-		<script src="js/controllers/files.js"></script>
-		<script src="js/controllers/drivers.js"></script>
-		<script src="js/controllers/breadcrumb.js"></script>
-		<script src="js/controllers/settings.js"></script>
-		<script src="js/controllers/contact.js"></script>
-		<script src="js/controllers/navbarhome.js"></script>
     </head>
 
     <body>
@@ -75,7 +59,7 @@
 
                     <ul class="nav nav-sidebar list-group" ng-controller="driverListCtrl">
                         <li class="list-group-item disabled">My drivers</a></li>
-                        <li class="list-group-item" ng-repeat="driver in drivers">
+                        <li class="list-group-item" ng-class="{active: isPathActive('/drivers/edit/{{driver.id}}')}" ng-repeat="driver in drivers">
                             <a href="#/drivers/edit/{{driver.id}}" title="{{driver.description}}">
                                 <i class="fa fa-fw" ng-class="driverToAwesomeClass(driver.name)"></i>
                                 {{driver.name}}
@@ -86,7 +70,7 @@
                     <ul class="nav nav-sidebar list-group">
                         <li class="list-group-item disabled">Quick upload</li>
                         <li class="list-group-item">
-                            <form role="form" style="padding: .3em">
+                            <form role="form" style="padding: .3em" novalidate>
                                 <div class="form-group">
                                     <select multiple class="form-control" size="3" ng-controller="driverListCtrl">
                                         <option ng-repeat="driver in drivers">{{driver.name}}</option>
@@ -122,5 +106,21 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<!-- FIXME: load the minified versions prior to release -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.js"></script>
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-resource.js"></script>-->
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.min.js"></script>-->
+
+		<script src="js/app.js"></script>
+		<script src="js/filters.js"></script>
+		<script src="js/services.js"></script>
+		<script src="js/controllers/files.js"></script>
+		<script src="js/controllers/drivers.js"></script>
+		<script src="js/controllers/breadcrumb.js"></script>
+		<script src="js/controllers/settings.js"></script>
+		<script src="js/controllers/contact.js"></script>
+		<script src="js/controllers/navbarhome.js"></script>
     </body>
 </html>

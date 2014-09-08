@@ -18,7 +18,7 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "$http",
         }
 
 		// FIXME: get the drivers from the server
-		$scope.drivers = [
+		$rootScope.drivers = [
 			{"name": "Dropbox", "description": "My main account on dropbox", "id": 0},
 			{"name": "Local", "description": "My backup folder on my external hard-drive", "id": 1},
 			{"name": "Secure Shell", "description": "My VPS in the USA", "id": 2},
@@ -26,13 +26,11 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "$http",
 	}
 ]);
 
-facetControllers.controller("driverEditCtrl", [ "$scope", "$routeParams",
-	function ($scope, $routeParams) {
+facetControllers.controller("driverEditCtrl", [ "$rootScope", "$scope", "$routeParams",
+	function ($rootScope, $scope, $routeParams) {
+        var driver_id = $routeParams.id;
+
 		// FIXME: get from the local drivers DB
-		$scope.driver = {
-			"name": "Unknown driver",
-			"description": "Unknown driver's description",
-			"id": $routeParams.id,
-		}
+		$scope.driver = $rootScope.drivers[driver_id];
 	}
 ]);
