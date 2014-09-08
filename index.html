@@ -30,6 +30,7 @@
 		<script src="js/controllers/breadcrumb.js"></script>
 		<script src="js/controllers/settings.js"></script>
 		<script src="js/controllers/contact.js"></script>
+		<script src="js/controllers/navbarhome.js"></script>
     </head>
 
     <body>
@@ -41,11 +42,11 @@
                     </a>
                 </div>
 
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#/">My files</a></li>
-                    <li><a href="#/settings">Settings</a></li>
-                    <li><a href="#/faq">F.A.Q.</a></li>
-                    <li><a href="#/contact">Contact</a></li>
+                <ul class="nav navbar-nav" ng-controller="navbarHomeCtrl">
+                    <li ng-class="{active: isPathActive('/files')}"><a href="#/">My files</a></li>
+                    <li ng-class="{active: isPathActive('/settings')}"><a href="#/settings">Settings</a></li>
+                    <li ng-class="{active: isPathActive('/faq')}"><a href="#/faq">F.A.Q.</a></li>
+                    <li ng-class="{active: isPathActive('/contact')}"><a href="#/contact">Contact</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -65,18 +66,18 @@
                 <div class="col-md-2">
                     <ul class="nav nav-sidebar list-group">
                         <li class="list-group-item disabled">My files</a></li>
-                        <li class="list-group-item"><a href="#"><i class="fa fa-picture-o fa-fw"></i>Pictures</a></li>
-                        <li class="list-group-item"><a href="#"><i class="fa fa-film fa-fw"></i>Videos</a></li>
-                        <li class="list-group-item"><a href="#"><i class="fa fa-music fa-fw"></i>Music</a></li>
-                        <li class="list-group-item"><a href="#"><i class="fa fa-font fa-fw"></i>Documents</a></li>
-                        <li class="list-group-item"><a href="#"><i class="fa fa-file fa-fw"></i>Other</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/document')}"><a href="#/files/document"><i class="fa fa-font fa-fw"></i>Documents</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/music')}"><a href="#/files/music"><i class="fa fa-music fa-fw"></i>Music</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/other')}"><a href="#/files/other"><i class="fa fa-file fa-fw"></i>Other</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/picture')}"><a href="#/files/picture"><i class="fa fa-picture-o fa-fw"></i>Pictures</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/video')}"><a href="#/files/video"><i class="fa fa-film fa-fw"></i>Videos</a></li>
                     </ul>
 
                     <ul class="nav nav-sidebar list-group" ng-controller="driverListCtrl">
                         <li class="list-group-item disabled">My drivers</a></li>
                         <li class="list-group-item" ng-repeat="driver in drivers">
-                            <a href="#">
-                                <i class="fa" ng-class="driverToAwesomeClass(driver.name)"></i>
+                            <a href="#/drivers/edit/{{driver.id}}" title="{{driver.description}}">
+                                <i class="fa fa-fw" ng-class="driverToAwesomeClass(driver.name)"></i>
                                 {{driver.name}}
                             </a>
                         </li>
@@ -88,7 +89,7 @@
                         <div class="row">
                             <ol class="breadcrumb" ng-controller="breadcrumbHomeCtrl">
                                 <li>Onitu</li>
-                                <li ng-class="{active: $last}" ng-repeat="directory in path">{{directory}}</li>
+                                <li ng-repeat="directory in path" ng-class="{active: $last}">{{directory}}</li>
                             </ol>
                         </div>
 

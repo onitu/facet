@@ -12,17 +12,17 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "$http",
             // FIXME: check owner type
             return {
                 "dropbox": "fa-dropbox",
-                "secure shell": "fa-terminal",
+                "secure shell": "fa-wifi",
                 "local": "fa-database",
             }[owner.toLowerCase()];
         }
 
 		// FIXME: get the drivers from the server
 		$scope.drivers = [
-			{"name": "Secure Shell", "id": 0},
-			{"name": "Dropbox", "id": 1},
-			{"name": "Local", "id": 2},
-		];
+			{"name": "Dropbox", "description": "My main account on dropbox", "id": 0},
+			{"name": "Local", "description": "My backup folder on my external hard-drive", "id": 1},
+			{"name": "Secure Shell", "description": "My VPS in the USA", "id": 2},
+		].sort();
 	}
 ]);
 

@@ -7,13 +7,19 @@
 
 facetControllers.controller("breadcrumbHomeCtrl", [ "$scope", "$location",
     function ($scope, $location) {
-        var dirs = $location.path().substr(1).split("/");
+        var capitalize_dirs = function (path) {
+            var dirs = path.split("/");
 
-        for (var i = 0; i < dirs.length; i++) {
-            // Capitalize
-            dirs[i] = dirs[i].charAt(0).toUpperCase() + dirs[i].slice(1);;
+            for (var i = 0; i < dirs.length; i++) {
+                // Capitalize
+                dirs[i] = dirs[i].charAt(0).toUpperCase() + dirs[i].slice(1);;
+            }
+
+            return dirs;
         }
 
-        $scope.path = dirs;
+        $scope.$on("$locationChangeSuccess", function (e) {
+            $scope.path = capitalize_dirs($location.path().substr(1));
+        });
     }
 ]);
