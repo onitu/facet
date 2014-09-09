@@ -27,6 +27,15 @@ body {
     margin-left: .5em;
 }
 
+.list-group-item.active > a > .fa {
+    color: #fff;
+}
+
+.list-group-item > a,
+.nav a {
+    outline: 0;
+}
+
 .nav-sidebar {
     margin-right: -21px;
     margin-bottom: 20px;

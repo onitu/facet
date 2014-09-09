@@ -5,11 +5,11 @@
 
 "use strict";
 
-var facetApp = angular.module("facetApp", [ "ngRoute", "facetFilters", "facetControllers" ]);
+var facetApp = angular.module("facetApp", [ "ngRoute", "facetFilters", "facetControllers", "restangular" ]);
 var facetControllers = angular.module("facetControllers", []);
 
-facetApp.config([ "$routeProvider",
-	function ($rp) {
+facetApp.config([ "$routeProvider", "RestangularProvider",
+	function ($rp, RestangularProvider) {
 		$rp
 		.when("/files", {
 			templateUrl: "partials/files_list.html",
@@ -38,5 +38,7 @@ facetApp.config([ "$routeProvider",
 		.otherwise({
 			redirectTo: "/files",
 		});
+
+        RestangularProvider.setBaseUrl("http://localhost:3862/api/v1.0/");
 	}
 ]);

@@ -59,9 +59,9 @@
 
                     <ul class="nav nav-sidebar list-group" ng-controller="driverListCtrl">
                         <li class="list-group-item disabled">My drivers</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/drivers/edit/{{driver.id}}')}" ng-repeat="driver in drivers">
-                            <a href="#/drivers/edit/{{driver.id}}" title="{{driver.description}}">
-                                <i class="fa fa-fw" ng-class="driverToAwesomeClass(driver.name)"></i>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/drivers/edit/{{driver.name}}')}" ng-repeat="driver in drivers">
+                            <a href="#/drivers/edit/{{driver.name}}" title="{{driver.description}}">
+                                <i class="fa fa-fw" ng-class="driverNameToAwesomeClass(driver.name)"></i>
                                 {{driver.name}}
                             </a>
                         </li>
@@ -111,7 +111,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.js"></script>
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-resource.js"></script>-->
-		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.min.js"></script>-->
+
+        <script src="https://raw.githubusercontent.com/lodash/lodash/2.4.1/dist/lodash.underscore.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.min.js"></script>
 
 		<script src="js/app.js"></script>
 		<script src="js/filters.js"></script>

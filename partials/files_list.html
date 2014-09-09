@@ -16,9 +16,10 @@
             <td><i class="fa fa-eye"></i></td>
             <td><i class="fa fa-download"></i></td>
             <td>{{file.filename}}</td>
+            <!-- FIXME: title should be the driver's name -->
             <td><i class="fa" ng-class="fileTypeToAwesomeClass(file.type)"></i></td>
             <td>{{file.size | fileSize}}</td>
-            <td><i class="fa" ng-class="driverToAwesomeClass(owner)" ng-repeat="owner in file.owners"></i></td>
+            <td><i class="fa" ng-class="driverNameToAwesomeClass(owner)" ng-repeat="owner in file.owners" title="{{owner}}"></i></td>
             <td><i class="fa fa-check"></i></td>
         </tr>
     </tbody>

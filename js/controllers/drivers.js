@@ -5,24 +5,30 @@
 
 "use strict";
 
-facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "$http",
-	function ($rootScope, $scope, $http) {
+facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "$http", "Restangular",
+	function ($rootScope, $scope, $http, Restangular) {
         // This function is used by the filesListCtrl controller
-        $rootScope.driverToAwesomeClass = function (owner) {
-            // FIXME: check owner type
-            return {
-                "dropbox": "fa-dropbox",
-                "secure shell": "fa-wifi",
-                "local": "fa-database",
-            }[owner.toLowerCase()];
+        $rootScope.driverNameToAwesomeClass = function (owner) {
+            var awsm_class;
+            var awsm_class_ref = {
+                "amazon_s3": "fa-cube",
+                "local_storage": "fa-database",
+            };
+
+            $.each($rootScope.drivers, function (_, driver) {
+                if (owner === driver.name) {
+                    awsm_class = awsm_class_ref[driver.driver];
+
+                    return false;
+                }
+            });
+
+            return awsm_class;
         }
 
-		// FIXME: get the drivers from the server
-		$rootScope.drivers = [
-			{"name": "Dropbox", "description": "My main account on dropbox", "id": 0},
-			{"name": "Local", "description": "My backup folder on my external hard-drive", "id": 1},
-			{"name": "Secure Shell", "description": "My VPS in the USA", "id": 2},
-		].sort();
+        Restangular.one("entries").get().then(function (drivers) {
+            $rootScope.drivers = drivers.entries;
+        });
 	}
 ]);
 
