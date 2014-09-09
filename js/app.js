@@ -19,6 +19,10 @@ facetApp.config([ "$routeProvider", "RestangularProvider",
 			templateUrl: "partials/files_list.html",
 			controller: "filesListCtrl",
 		})
+        .when("/drivers/info/:name", {
+            templateUrl: "partials/driver_info.html",
+            controller: "driverInfoCtrl",
+        })
         .when("/drivers/edit/:name", {
             templateUrl: "partials/driver_edit.html",
             controller: "driverEditCtrl",

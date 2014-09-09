@@ -46,7 +46,7 @@
         </nav>
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row-fluid">
                 <div class="col-md-2">
                     <ul class="nav nav-sidebar list-group">
                         <li class="list-group-item disabled">My files</a></li>
@@ -59,22 +59,36 @@
 
                     <ul class="nav nav-sidebar list-group" ng-controller="driverListCtrl">
                         <li class="list-group-item disabled">My drivers</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/drivers/edit/{{driver.name}}')}" ng-repeat="driver in drivers">
-                            <a href="#/drivers/edit/{{driver.name}}" title="{{driver.description}}">
+                        <li class="list-group-item" ng-class="{active: isPathActive('/drivers/info/{{driver.name}}')}" ng-repeat="driver in drivers">
+                            <a href="#/drivers/info/{{driver.name}}" title="{{driver.description}}">
                                 <i class="fa fa-fw" ng-class="driverNameToAwesomeClass(driver.name)"></i>
                                 {{driver.name}}
                             </a>
                         </li>
                     </ul>
 
-                    <ul class="nav nav-sidebar list-group">
+                    <ul id="quickUploadForm" class="nav nav-sidebar list-group">
                         <li class="list-group-item disabled">Quick upload</li>
                         <li class="list-group-item">
                             <form role="form" style="padding: .3em" novalidate>
-                                <div class="form-group">
-                                    <select multiple class="form-control" size="3" ng-controller="driverListCtrl">
-                                        <option ng-repeat="driver in drivers">{{driver.name}}</option>
-                                    </select>
+                                <div class="container-fluid">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            Owners
+                                            <select multiple class="form-control" size="3" ng-controller="driverListCtrl">
+                                                <option ng-repeat="driver in drivers">{{driver.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            Targets
+                                            <select multiple class="form-control" size="3" ng-controller="driverListCtrl">
+                                                <option ng-repeat="driver in drivers">{{driver.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -89,14 +103,14 @@
 
                 <div class="col-md-10">
                     <div class="container-fluid">
-                        <div class="row">
+                        <div class="row-fluid">
                             <ol class="breadcrumb" ng-controller="breadcrumbHomeCtrl">
                                 <li>Onitu</li>
                                 <li ng-repeat="directory in path" ng-class="{active: $last}">{{directory}}</li>
                             </ol>
                         </div>
 
-                        <div class="row" ng-view>
+                        <div class="row-fluid" ng-view>
                             <!-- Here be the views -->
                         </div>
                     </div>

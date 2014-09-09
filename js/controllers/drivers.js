@@ -5,8 +5,8 @@
 
 "use strict";
 
-facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "$http", "Restangular",
-	function ($rootScope, $scope, $http, Restangular) {
+facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "Restangular",
+	function ($rootScope, $scope, Restangular) {
         // This function is used by the filesListCtrl controller
         $rootScope.driverNameToAwesomeClass = function (owner) {
             var awsm_class;
@@ -30,6 +30,17 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "$http",
             $rootScope.drivers = drivers.entries;
         });
 	}
+]);
+
+facetControllers.controller("driverInfoCtrl", [ "$scope", "$routeParams", "Restangular",
+    function ($scope, $rp, Restangular) {
+        var driver_name = $rp.name;
+
+        Restangular.one("entries", driver_name).one("stats").get().then(function (stats) {
+            stats.time = Math.floor(stats.time * 1000);
+            $scope.stats = stats;
+        });
+    }
 ]);
 
 facetControllers.controller("driverEditCtrl", [ "$rootScope", "$scope", "$routeParams",
