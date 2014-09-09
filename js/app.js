@@ -19,8 +19,7 @@ facetApp.config([ "$routeProvider", "RestangularProvider",
 			templateUrl: "partials/files_list.html",
 			controller: "filesListCtrl",
 		})
-        // FIXME: use the driver name in the url ?
-        .when("/drivers/edit/:id", {
+        .when("/drivers/edit/:name", {
             templateUrl: "partials/driver_edit.html",
             controller: "driverEditCtrl",
         })

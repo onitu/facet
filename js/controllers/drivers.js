@@ -34,9 +34,13 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "$http",
 
 facetControllers.controller("driverEditCtrl", [ "$rootScope", "$scope", "$routeParams",
 	function ($rootScope, $scope, $routeParams) {
-        var driver_id = $routeParams.id;
+        var driver_name = $routeParams.name;
 
-		// FIXME: get from the local drivers DB
-		$scope.driver = $rootScope.drivers[driver_id];
+        $.each($rootScope.drivers, function (_, driver) {
+            if (driver.name === driver_name) {
+                $scope.driver = driver;
+                return false;
+            }
+        });
 	}
 ]);
