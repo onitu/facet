@@ -1,0 +1,58 @@
+<div class="col-md-11">
+    <div class="row-fluid">
+        <form name="settingsForm" class="form-horizontal" role="form" novalidate>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <h3>Settings</h3>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <h4>General</h4>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': settingsForm.endpoint.$invalid && settingsForm.endpoint.$dirty}">
+                <label for="endpoint" class="col-md-2 control-label">Endpoint</label>
+                <div class="col-md-10">
+                    <input type="text" name="endpoint" class="form-control" id="inputEndpoint" placeholder="Name" ng-model="endpoint" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <h4>Interface</h4>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pagination" class="col-md-2 control-label">Pagination</label>
+                <div class="col-md-10">
+                    <select class="form-control" ng-model="pagination">
+                        <option selected>20</option>
+                        <option>40</option>
+                        <option>100</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sorting" class="col-md-2 control-label">Sorting</label>
+                <div class="col-md-10">
+                    <select class="form-control" ng-model="sorting">
+                        <option selected>filename</option>
+                        <option>owner</option>
+                        <option>filetype</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary" ng-disabled="settingsForm.$invalid || settingsForm.$pristine">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
