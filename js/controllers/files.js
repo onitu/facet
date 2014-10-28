@@ -31,7 +31,7 @@ facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routePa
         }
 
         $scope.displayFile = function (file) {
-            $location.path('/file/' + file.fid);
+            $location.path("/files/" + file.uptodate[0] + "/" + file.filename);
         }
 
         if ($rootScope.files === undefined) {
@@ -44,14 +44,16 @@ facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routePa
 
 facetControllers.controller("fileDetailsCtrl", [ "$rootScope", "$scope", "$routeParams", "filesFactory",
     function ($rootScope, $scope, $routeParams, filesFactory) {
-        var fid = $routeParams.fid;
-        var find_file = function (fid) {
+        var drivername = $routeParams.drivername;
+        var filename = $routeParams.filename;
+
+        var find_file = function (drivername, filename) {
             $.each($rootScope.files, function (_, file) {
-                if (file.fid === fid) {
+                if (file.filename === filename && file.uptodate.indexOf(drivername) > -1) {
                     $scope.file = file;
 
                     $.each($rootScope.drivers, function (_, driver) {
-                        if (file.uptodate.indexOf(driver.name) > -1) {
+                        if (driver.name === drivername) {
                             $scope.driver = driver;
 
                             return false;
@@ -67,10 +69,10 @@ facetControllers.controller("fileDetailsCtrl", [ "$rootScope", "$scope", "$route
         if ($rootScope.files === undefined) {
             filesFactory.getFiles().then(function (files) {
                 $rootScope.files = files;
-                find_file(fid);
+                find_file(drivername, filename);
             });
         } else {
-            find_file(fid);
+            find_file(drivername, filename);
         }
     }
 ]);

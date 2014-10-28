@@ -20,7 +20,7 @@ facetApp.config([ "$routeProvider", "RestangularProvider",
 			templateUrl: "partials/files_list.html",
 			controller: "filesListCtrl",
 		})
-        .when("/file/:fid", {
+        .when("/files/:drivername/:filename", {
             templateUrl: "partials/file_details.html",
             controller: "fileDetailsCtrl",
         })
