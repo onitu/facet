@@ -50,6 +50,7 @@ facetControllers.controller("fileDetailsCtrl", [ "$rootScope", "$scope", "$route
                 if (file.filename === filename && file.uptodate.indexOf(drivername) > -1) {
                     $scope.file = file;
 
+
                     $.each($rootScope.drivers, function (_, driver) {
                         if (driver.name === drivername) {
                             $scope.driver = driver;
@@ -57,6 +58,8 @@ facetControllers.controller("fileDetailsCtrl", [ "$rootScope", "$scope", "$route
                             return false;
                         }
                     });
+
+                    $scope.trustedFilePath = "";//$scope.driver.options.root + '/' + $scope.file.filename;
 
                     return false;
                 }

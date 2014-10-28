@@ -9,7 +9,7 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "Restang
 	function ($rootScope, $scope, Restangular) {
         // This function is used by the filesListCtrl controller
         $rootScope.driverNameToAwesomeClass = function (owner) {
-            var awsm_class = "fa-question";
+            var awsm_class = "fa-upload";
             var awsm_class_ref = {
                 "amazon_s3": "fa-cube",
                 "local_storage": "fa-database",
@@ -21,7 +21,7 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "Restang
             };
 
             $.each($rootScope.drivers, function (_, driver) {
-                if (owner === driver.name) {
+                if (owner === driver.driver) {
                     awsm_class = awsm_class_ref[driver.driver];
 
                     return false;
