@@ -50,17 +50,17 @@
                 <div class="col-md-2">
                     <ul class="nav nav-sidebar list-group">
                         <li class="list-group-item disabled">My files</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/document')}"><a href="#/files/document"><i class="fa fa-font fa-fw"></i>Documents</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/music')}"><a href="#/files/music"><i class="fa fa-music fa-fw"></i>Music</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/other')}"><a href="#/files/other"><i class="fa fa-file fa-fw"></i>Other</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/picture')}"><a href="#/files/picture"><i class="fa fa-picture-o fa-fw"></i>Pictures</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/video')}"><a href="#/files/video"><i class="fa fa-film fa-fw"></i>Videos</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/document')}"><a href="#/files/sort/document"><i class="fa fa-font fa-fw"></i>Documents</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/music')}"><a href="#/files/sort/music"><i class="fa fa-music fa-fw"></i>Music</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/other')}"><a href="#/files/sort/other"><i class="fa fa-file fa-fw"></i>Other</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/picture')}"><a href="#/files/sort/picture"><i class="fa fa-picture-o fa-fw"></i>Pictures</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/video')}"><a href="#/files/sort/video"><i class="fa fa-film fa-fw"></i>Videos</a></li>
                     </ul>
 
                     <ul class="nav nav-sidebar list-group" ng-controller="driverListCtrl">
                         <li class="list-group-item disabled">My drivers</li>
                         <li class="list-group-item" ng-class="{active: isPathActive('/drivers/info/{{driver.name}}')}" ng-repeat="driver in drivers">
-                            <a href="#/drivers/info/{{driver.name}}" title="{{driver.description}}">
+                            <a href="#/drivers/{{driver.name}}/info" title="{{driver.description}}">
                                 <i class="fa fa-fw" ng-class="driverNameToAwesomeClass(driver.name)"></i>
                                 {{driver.name}}
                             </a>

@@ -31,7 +31,7 @@ facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routePa
         }
 
         $scope.displayFile = function (file) {
-            $location.path("/files/" + file.uptodate[0] + "/" + file.filename);
+            $location.path("/files/" + file.uptodate[0] + "/" + file.filename + "/info");
         }
 
         if ($rootScope.files === undefined) {
