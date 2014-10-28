@@ -9,6 +9,9 @@
         <div class="form-group">
             <div class="col-md-10 col-md-offset-2">
                 <a class="btn btn-default" href="#/drivers/{{stats.name}}/edit"><i class="fa fa-fw fa-edit"></i>&nbsp;Edit</a>
+                <a class="btn btn-default" href="#/drivers/edit/{{stats.name}}"><i class="fa fa-fw fa-edit"></i>&nbsp;Edit</a>
+                <a ng-show="showButtonOAuth === true" class="btn btn-default pull-right" href="{{oauthurl}}">&nbsp;Oauth2 authentication</a>
+
                 <div class="btn-group pull-right">
                     <a class="btn btn-success"><i class="fa fa-fw fa-play-circle"></i>&nbsp;Start</a>
                     <a class="btn btn-danger"><i class="fa fa-fw fa-power-off"></i>&nbsp;Stop</a>
