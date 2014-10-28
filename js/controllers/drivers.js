@@ -9,10 +9,12 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "Restang
 	function ($rootScope, $scope, Restangular) {
         // This function is used by the filesListCtrl controller
         $rootScope.driverNameToAwesomeClass = function (owner) {
-            var awsm_class;
+            var awsm_class = "fa-question";
             var awsm_class_ref = {
                 "amazon_s3": "fa-cube",
                 "local_storage": "fa-database",
+                "dropbox": "fa-dropbox",
+                "hubic": "fa-h-square",
             };
 
             $.each($rootScope.drivers, function (_, driver) {
@@ -33,8 +35,8 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "Restang
 ]);
 
 facetControllers.controller("driverInfoCtrl", [ "$scope", "$routeParams", "Restangular",
-    function ($scope, $rp, Restangular) {
-        var driver_name = $rp.name;
+    function ($scope, $routeParams, Restangular) {
+        var driver_name = $routeParams.name;
 
         Restangular.one("entries", driver_name).one("stats").get().then(function (stats) {
             stats.time = Math.floor(stats.time * 1000);
@@ -50,8 +52,27 @@ facetControllers.controller("driverEditCtrl", [ "$rootScope", "$scope", "$routeP
         $.each($rootScope.drivers, function (_, driver) {
             if (driver.name === driver_name) {
                 $scope.driver = driver;
+
                 return false;
             }
         });
+	}
+]);
+
+facetControllers.controller("driverAddCtrl", [ "$rootScope", "$scope",
+	function ($rootScope, $scope) {
+        $scope.addOption = function () {
+            $scope.driver.options["new key"] = "new value";
+        }
+
+        $scope.foo = function () {
+            $scope.driver.options[this.key] = this.value;
+        }
+
+        $scope.driver = {
+            name: "New driver",
+            description: "My synchronization driver to my favorite service",
+            options: {},
+        }
 	}
 ]);

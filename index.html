@@ -58,13 +58,14 @@
                     </ul>
 
                     <ul class="nav nav-sidebar list-group" ng-controller="driverListCtrl">
-                        <li class="list-group-item disabled">My drivers</a></li>
+                        <li class="list-group-item disabled">My drivers</li>
                         <li class="list-group-item" ng-class="{active: isPathActive('/drivers/info/{{driver.name}}')}" ng-repeat="driver in drivers">
                             <a href="#/drivers/info/{{driver.name}}" title="{{driver.description}}">
                                 <i class="fa fa-fw" ng-class="driverNameToAwesomeClass(driver.name)"></i>
                                 {{driver.name}}
                             </a>
                         </li>
+                        <li class="list-group-item"><a href="#/drivers/add"><i class="fa fa-plus fa-fw"></i>add driver</a></li>
                     </ul>
 
                     <ul id="quickUploadForm" class="nav nav-sidebar list-group">
@@ -122,15 +123,15 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 		<!-- FIXME: load the minified versions prior to release -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
 
         <script src="https://raw.githubusercontent.com/lodash/lodash/2.4.1/dist/lodash.underscore.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.min.js"></script>
 
 		<script src="js/app.js"></script>
 		<script src="js/filters.js"></script>
-		<script src="js/services.js"></script>
+		<script src="js/factories.js"></script>
 		<script src="js/controllers/files.js"></script>
 		<script src="js/controllers/drivers.js"></script>
 		<script src="js/controllers/breadcrumb.js"></script>

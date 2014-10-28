@@ -54,11 +54,32 @@ body {
     background-color: #428bca;
 }
 
-table > tbody > tr > td,
-table > thead > tr > th {
+table#files-list > tbody > tr > td,
+table#files-list > thead > tr > th {
     text-align: center;
 }
 
-table > tbody > tr > td:nth-child(6) > i.fa {
+table#files-list > tbody > tr > td:nth-child(6) > i.fa {
     margin-right: .5em;
+}
+
+table#files-list > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+    background-color: none;
+}
+
+table#files-list > tbody > tr:hover > td:first-child {
+    border-left: #4D6C9E 3px solid;
+}
+
+table#file-details > tbody > tr> td {
+    text-align: center;
+}
+
+table#file-details > thead > tr > th {
+    border-bottom: none;
+}
+
+table#file-details > tbody > tr:first-child > td {
+    border-top: none;
 }
