@@ -34,11 +34,9 @@ facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routePa
             $location.path("/files/" + file.uptodate[0] + "/" + file.filename + "/info");
         }
 
-        if ($rootScope.files === undefined) {
-            filesFactory.getFiles($routeParams.type).then(function (files) {
-                $rootScope.files = files;
-            });
-        }
+        filesFactory.getFiles($routeParams.type).then(function (files) {
+            $rootScope.files = files;
+        });
 	}
 ]);
 

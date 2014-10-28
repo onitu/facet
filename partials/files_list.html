@@ -15,7 +15,7 @@
             <tr ng-repeat="file in files" ng-click="displayFile(file)">
                 <td><i class="fa fa-eye"></i></td>
                 <td>{{file.filename}}</td>
-                <td><i class="fa" ng-class="fileTypeToAwesomeClass(file.type)"></i></td>
+                <td><i class="fa" ng-class="fileTypeToAwesomeClass(file.type)" title="{{file.type}}"></i></td>
                 <td>{{file.size | fileSize}}</td>
                 <!-- FIXME: tooltips -->
                 <td><i class="fa" ng-class="driverNameToAwesomeClass(owner)" ng-repeat="owner in file.owners" title="{{owner}}"></i></td>

@@ -49,12 +49,19 @@
             <div class="row-fluid">
                 <div class="col-md-2">
                     <ul class="nav nav-sidebar list-group">
+                        <!-- FIXME: add a rolldown button -->
                         <li class="list-group-item disabled">My files</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/document')}"><a href="#/files/sort/document"><i class="fa fa-font fa-fw"></i>Documents</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/music')}"><a href="#/files/sort/music"><i class="fa fa-music fa-fw"></i>Music</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/other')}"><a href="#/files/sort/other"><i class="fa fa-file fa-fw"></i>Other</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/picture')}"><a href="#/files/sort/picture"><i class="fa fa-picture-o fa-fw"></i>Pictures</a></li>
-                        <li class="list-group-item" ng-class="{active: isPathActive('/files/video')}"><a href="#/files/sort/video"><i class="fa fa-film fa-fw"></i>Videos</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/word')}"><a href="#/files/sort/word"><i class="fa fa-font fa-fw"></i>Documents</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/audio')}"><a href="#/files/sort/audio"><i class="fa fa-music fa-fw"></i>Music</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/image')}"><a href="#/files/sort/image"><i class="fa fa-picture-o fa-fw"></i>Pictures</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/video')}"><a href="#/files/sort/video"><i class="fa fa-film fa-fw"></i>Videos</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/file')}"><a href="#/files/sort/file"><i class="fa fa-file fa-fw"></i>Other</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/archive')}"><a href="#/files/sort/archive"><i class="fa fa-file-archive-o fa-fw"></i>Archives</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/code')}"><a href="#/files/sort/code"><i class="fa fa-file-code-o fa-fw"></i>Code</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/text')}"><a href="#/files/sort/text"><i class="fa fa-file-text-o fa-fw"></i>Text files</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/excel')}"><a href="#/files/sort/excel"><i class="fa fa-file-excel-o fa-fw"></i>Spreadsheets</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/powerpoint')}"><a href="#/files/sort/powerpoint"><i class="fa fa-file-powerpoint-o fa-fw"></i>Presentations</a></li>
+                        <li class="list-group-item" ng-class="{active: isPathActive('/files/sort/pdf')}"><a href="#/files/sort/pdf"><i class="fa fa-file-pdf-o fa-fw"></i>PDF</a></li>
                     </ul>
 
                     <ul class="nav nav-sidebar list-group" ng-controller="driverListCtrl">
