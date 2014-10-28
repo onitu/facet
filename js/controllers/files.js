@@ -5,8 +5,8 @@
 
 "use strict";
 
-facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routeParams", "filesFactory",
-	function ($rootScope, $scope, $routeParams, filesFactory) {
+facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routeParams", "$location", "filesFactory",
+	function ($rootScope, $scope, $routeParams, $location, filesFactory) {
         $scope.fileTypeToAwesomeClass = function (filetype) {
             var awesome_class_ref = {
                 "file": "fa-file-o",
@@ -21,13 +21,17 @@ facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routePa
                 "video": "fa-file-video-o",
                 "word": "fa-file-word-o",
             }
-            
+
             filetype = filetype.toLowerCase();
             if (filetype in awesome_class_ref) {
                 return awesome_class_ref[filetype];
             } else {
                 return awesome_class_ref["file"];
             }
+        }
+
+        $scope.displayFile = function (file) {
+            $location.path('/file/' + file.fid);
         }
 
         if ($rootScope.files === undefined) {

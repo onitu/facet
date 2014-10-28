@@ -12,9 +12,8 @@
         </thead>
     
         <tbody>
-            <!-- FIXME: won't redirect -->
-            <tr ng-repeat="file in files" ng-click="$location.path('/file/' + file.fid)">
-                <td><a href="#/file/{{file.fid}}"><i class="fa fa-eye"></i></a></td>
+            <tr ng-repeat="file in files" ng-click="displayFile(file)">
+                <td><i class="fa fa-eye"></i></td>
                 <td>{{file.filename}}</td>
                 <td><i class="fa" ng-class="fileTypeToAwesomeClass(file.type)"></i></td>
                 <td>{{file.size | fileSize}}</td>

@@ -15,6 +15,9 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "Restang
                 "local_storage": "fa-database",
                 "dropbox": "fa-dropbox",
                 "hubic": "fa-h-square",
+                "flickr": "fa-flickr",
+                "google_drive": "fa-google",
+                "sftp": "fa-sitemap",
             };
 
             $.each($rootScope.drivers, function (_, driver) {
