@@ -21,7 +21,7 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "Restang
             };
 
             $.each($rootScope.drivers, function (_, driver) {
-                if (owner === driver.driver) {
+                if (owner === driver.name) {
                     awsm_class = awsm_class_ref[driver.driver];
 
                     return false;

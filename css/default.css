@@ -12,6 +12,10 @@ body {
     padding: 0;
 }
 
+#dropdownOtherTypes {
+    text-align: right;
+}
+
 .nav-sidebar > .list-group-item {
     padding: 0;
 }
@@ -52,6 +56,15 @@ body {
 .nav-sidebar > .active > a:focus {
     color: #fff;
     background-color: #428bca;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-image: none;
+}
+
+.dropdown-styleless {
+    padding: 0;
+    border: none;
 }
 
 table#files-list > tbody > tr > td,
