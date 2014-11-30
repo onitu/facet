@@ -98,3 +98,15 @@ table#file-details > thead > tr > th {
 table#file-details > tbody > tr:first-child > td {
     border-top: none;
 }
+
+.row-folder-name i.fa {
+    color: #428BCA;
+}
+
+.row-folder-name > .folder-name {
+    border-bottom: 2px #DDD dotted;
+}
+
+.row-folder-name {
+    padding-bottom: .5em;
+}

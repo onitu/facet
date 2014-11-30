@@ -43,13 +43,13 @@ facetControllers.controller("driverInfoCtrl", [ "$scope", "$routeParams", "Resta
 
       $scope.showButtonOAuth = false;
       Restangular.one('entries', driver_name).one('oauth2url').get().then(function (url) {
-	$scope.showButtonOAuth = true;
-	$scope.oauthurl = url;
+          $scope.showButtonOAuth = true;
+          $scope.oauthurl = url;
       });
 
       Restangular.one("entries", driver_name).one("stats").get().then(function (stats) {
-        stats.time = Math.floor(stats.time * 1000);
-        $scope.stats = stats;
+          stats.time = Math.floor(stats.time * 1000);
+          $scope.stats = stats;
       });
     }
 ]);
