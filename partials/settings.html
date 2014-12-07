@@ -29,7 +29,7 @@
             <div class="form-group">
                 <label for="pagination" class="col-md-2 control-label">Pagination</label>
                 <div class="col-md-10">
-                    <select class="form-control" ng-model="pagination">
+                    <select class="form-control">
                         <option selected>20</option>
                         <option>40</option>
                         <option>100</option>
@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label for="sorting" class="col-md-2 control-label">Sorting</label>
                 <div class="col-md-10">
-                    <select class="form-control" ng-model="sorting">
+                    <select class="form-control">
                         <option selected>filename</option>
                         <option>owner</option>
                         <option>filetype</option>
@@ -50,7 +50,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-primary" ng-disabled="settingsForm.$invalid || settingsForm.$pristine">Update</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="settingsForm.$invalid || settingsForm.$pristine" ng-click="updateSettings()">Update</button>
                 </div>
             </div>
         </form>
