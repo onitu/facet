@@ -9,7 +9,7 @@ facetFactories.factory("filesFactory", [ "Restangular",
 	function (Restangular) {
 		return {
             getFiles: function (file_type) {
-                var filter_array = function (files, type) {
+                var filter_array_by_type = function (files, type) {
                     var ret = [];
 
                     $.each(files, function (_, file) {
@@ -146,7 +146,6 @@ facetFactories.factory("filesFactory", [ "Restangular",
                             "application/vnd.ms-xpsdocument",
                         ],
                     }
-
                     $.each(files, function (_, file) {
                         file.type = "file";
 
@@ -171,7 +170,7 @@ facetFactories.factory("filesFactory", [ "Restangular",
                             var files = assign_filetypes(data.files);
 
                             if (file_type !== undefined) {
-                                files = filter_array(files, file_type);
+                                files = filter_array_by_type(files, file_type);
                             } else {
                                 files = files;
                             }

@@ -7,6 +7,34 @@
 
 facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routeParams", "$location", "filesFactory",
 	function ($rootScope, $scope, $routeParams, $location, filesFactory) {
+        var assign_files_by_dir = function (files) {
+            var f = {
+                orphans: [],
+                by_dir: {},
+            }
+
+            $.each(files, function (_, file) {
+                var slash_idx = file.filename.indexOf("/");
+
+                if (slash_idx > -1) {
+                    var dir = file.filename.substr(0, slash_idx);
+                    var path_remaining = file.filename.substr(slash_idx + 1);
+
+                    file.filename = path_remaining;
+
+                    if (dir in f.by_dir) {
+                        f.by_dir[dir].push(file);
+                    } else {
+                        f.by_dir[dir] = [file];
+                    }
+                } else {
+                    f.orphans.push(file);
+                }
+            });
+
+            return f;
+        }
+
         $scope.fileTypeToAwesomeClass = function (filetype) {
             var awesome_class_ref = {
                 "file": "fa-file-o",
@@ -35,7 +63,8 @@ facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routePa
         }
 
         filesFactory.getFiles($routeParams.type).then(function (files) {
-            $rootScope.files = files;
+            // Split the files between orphans (no parent directory) and the rest
+            $rootScope.files = assign_files_by_dir(files);
         });
 	}
 ]);
@@ -46,7 +75,8 @@ facetControllers.controller("fileDetailsCtrl", [ "$rootScope", "$scope", "$route
         var filename = $routeParams.filename;
 
         var find_file = function (drivername, filename) {
-            $.each($rootScope.files, function (_, file) {
+            // FIXME: works only with orphans
+            $.each($rootScope.files.orphans, function (_, file) {
                 if (file.filename === filename && file.uptodate.indexOf(drivername) > -1) {
                     $scope.file = file;
 
@@ -59,6 +89,7 @@ facetControllers.controller("fileDetailsCtrl", [ "$rootScope", "$scope", "$route
                         }
                     });
 
+                    // FIXME: better preview
                     $scope.trustedFilePath = "";//$scope.driver.options.root + '/' + $scope.file.filename;
 
                     return false;
@@ -67,6 +98,7 @@ facetControllers.controller("fileDetailsCtrl", [ "$rootScope", "$scope", "$route
         }
 
         // If the files were not fetched beforehand, update the global cache
+        // FIXME: assign_files_by_dir()
         if ($rootScope.files === undefined) {
             filesFactory.getFiles().then(function (files) {
                 $rootScope.files = files;
