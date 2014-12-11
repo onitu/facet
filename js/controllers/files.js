@@ -48,6 +48,7 @@ facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routePa
                 "text": "fa-file-text-o",
                 "video": "fa-file-video-o",
                 "word": "fa-file-word-o",
+                "directory": "fa-folder",
             }
 
             filetype = filetype.toLowerCase();
@@ -63,8 +64,20 @@ facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routePa
         }
 
         filesFactory.getFiles($routeParams.type).then(function (files) {
+            files = assign_files_by_dir(files);
+
+            $.each(files.by_dir, function (dirname, entry) {
+                $.each(entry, function (_, file) {
+                    var slash_idx = file.filename.lastIndexOf("/");
+
+                    if (slash_idx > -1) {
+                        file.filename = file.filename.substr(slash_idx + 1);
+                    }
+                });
+            });
+
             // Split the files between orphans (no parent directory) and the rest
-            $rootScope.files = assign_files_by_dir(files);
+            $rootScope.files = files;
         });
 	}
 ]);
