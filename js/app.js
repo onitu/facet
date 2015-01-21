@@ -47,10 +47,15 @@ facetApp.config([ "$routeProvider", "RestangularProvider",
 			templateUrl: "partials/contact.html",
 			controller: "contactFormCtrl",
 		})
+		.when("/login", {
+			templateUrl: "partials/login.html",
+			controller: "loginFormCtrl",
+		})
 		.otherwise({
 			redirectTo: "/files",
 		});
 
         RestangularProvider.setBaseUrl("http://localhost:3862/api/v1.0/");
+        RestangularProvider.setDefaultHttpFields({'withCredentials':'true'});
 	}
 ]);
