@@ -2,5 +2,5 @@
   font-family: 'Gafata';
   font-style: normal;
   font-weight: 400;
-  src: local('Gafata'), local('Gafata-Regular'), url(../fonts/gafata-regular.ttf) format('truetype');
+  src: local('Gafata'), local('Gafata-Regular'), url(../vendors/fonts/gafata-regular.ttf) format('truetype');
 }
