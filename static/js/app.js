@@ -40,10 +40,6 @@ facetApp.config([ "$routeProvider", "RestangularProvider",
 			templateUrl: "partials/settings.html",
 			controller: "settingsFormCtrl",
 		})
-		.when("/contact", {
-			templateUrl: "partials/contact.html",
-			controller: "contactFormCtrl",
-		})
 		.when("/login", {
 			templateUrl: "partials/login.html",
 			controller: "loginFormCtrl",
