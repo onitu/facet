@@ -31,8 +31,8 @@ facetControllers.controller("driverListCtrl", [ "$rootScope", "$scope", "Restang
             return awsm_class;
         }
 
-        Restangular.one("entries").get().then(function (drivers) {
-            $rootScope.drivers = drivers.entries;
+        Restangular.one("services").get().then(function (drivers) {
+            $rootScope.drivers = drivers.services;
         });
 	}
 ]);
@@ -42,12 +42,12 @@ facetControllers.controller("driverInfoCtrl", [ "$scope", "$routeParams", "Resta
         var driver_name = $routeParams.name;
 
       $scope.showButtonOAuth = false;
-      Restangular.one('entries', driver_name).one('oauth2url').get().then(function (url) {
+      Restangular.one('services', driver_name).one('oauth2url').get().then(function (url) {
           $scope.showButtonOAuth = true;
           $scope.oauthurl = url;
       });
 
-      Restangular.one("entries", driver_name).one("stats").get().then(function (stats) {
+      Restangular.one("services", driver_name).one("stats").get().then(function (stats) {
           stats.time = Math.floor(stats.time * 1000);
           $scope.stats = stats;
       });

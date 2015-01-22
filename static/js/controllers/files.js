@@ -66,8 +66,8 @@ facetControllers.controller("filesListCtrl", [ "$rootScope", "$scope", "$routePa
         filesFactory.getFiles($routeParams.type).then(function (files) {
             files = assign_files_by_dir(files);
 
-            $.each(files.by_dir, function (dirname, entry) {
-                $.each(entry, function (_, file) {
+            $.each(files.by_dir, function (dirname, service) {
+                $.each(service, function (_, file) {
                     var slash_idx = file.filename.lastIndexOf("/");
 
                     if (slash_idx > -1) {
