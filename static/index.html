@@ -71,39 +71,6 @@
                         </li>
                         <li class="list-group-item"><a href="#/drivers/add"><i class="fa fa-plus fa-fw"></i>add driver</a></li>
                     </ul>
-
-                    <ul id="quickUploadForm" class="nav nav-sidebar list-group">
-                        <li class="list-group-item disabled">Quick upload</li>
-                        <li class="list-group-item">
-                            <form role="form" style="padding: .3em" novalidate>
-                                <div class="container-fluid">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            Owners
-                                            <select multiple class="form-control" size="3" ng-controller="driverListCtrl">
-                                                <option ng-repeat="driver in drivers">{{driver.name}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            Targets
-                                            <select multiple class="form-control" size="3" ng-controller="driverListCtrl">
-                                                <option ng-repeat="driver in drivers">{{driver.name}}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="file" id="inputFile">
-                                </div>
-
-                                <button type="submit" class="btn btn-default btn-sm center-block">Upload</button>
-                            </form>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="col-md-10">

@@ -7,11 +7,6 @@ body {
     padding-top: 60px;
 }
 
-#quickUploadForm .container-fluid,
-#quickUploadForm .col-md-6 {
-    padding: 0;
-}
-
 #dropdownOtherTypes {
     text-align: right;
     padding-top: 0;
